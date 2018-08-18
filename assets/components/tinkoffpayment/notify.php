@@ -21,7 +21,7 @@ if ($data['Success']) {
 
     $out = $TinkoffPayment->notification($data['Token'], $data);
 
-    if ($out && $data['Status'] = 'CONFIRMED') {
+    if ($out && $data['Status'] == 'CONFIRMED') {
         $new_status = $modx->getOption($TinkoffPayment->namespace . '_change_status');
 
         $change_status = $order->set('status', $new_status);
