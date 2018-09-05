@@ -150,12 +150,8 @@ class TinkoffPayment
         unset($dataResponce["Token"]);
 
         $dataResponce['Success'] = (int)$dataResponce['Success'];
-        if ($dataResponce['Success'] > 0) {
-            $dataResponce['Success'] = (string)'true';
-        } else {
-            $dataResponce['Success'] = (string)'false';
-        }
-
+        $dataResponce['Success'] = ($dataResponce['Success'] > 0) : (string)'true' ? (string)'false'? 
+            
         $dataResponce['Password'] = $this->params['secret_key'];
 
         $token = $this->_getToken($dataResponce);
